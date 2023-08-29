@@ -1,0 +1,319 @@
+### Data Cleaning
+
+### Duplicates, missing values, NA's
+
+
+### Missing values
+SELECT
+    COUNT(id) id,
+    COUNT(items) items,
+    COUNT(category) category,
+    COUNT(variety) variety,
+    COUNT(date) date,
+    COUNT(price) price
+FROM
+    `logical-light-389912.Fruits_Veges.data`;
+### 3474 missing values/nulls in variety column
+
+
+### Check duplicates
+SELECT
+    COUNT(*) as duplicate
+FROM 
+    `logical-light-389912.Fruits_Veges.data`
+HAVING 
+    duplicate < 1;
+
+
+### Create table for updates - lets leave id column as it has not much valuable informations.
+CREATE TABLE IF NOT EXISTS `logical-light-389912.Fruits_Veges.data_updates` AS
+    SELECT
+        items,
+        category,
+        variety,
+        date,
+        unit,
+        price,
+    FROM
+        `logical-light-389912.Fruits_Veges.data`;
+### Data is not huge so lets have a look into columns for any wrong data(missing spellings, incorrect values)
+
+
+### Check items column
+SELECT
+    DISTINCT(items)
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+ORDER BY
+    items;
+### 4 Items type (Fruit, Vegetable, Cutflowers, Pot plants)
+
+
+### Check category column
+SELECT 
+    DISTINCT(category)
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+ORDER BY
+    category;
+### 56 Categories - Data has 3 categories Watercress, Watercress(d) and Watercress(f)
+
+
+### Lets edit Watercress (d) and Watercress (f)
+UPDATE
+    `logical-light-389912.Fruits_Veges.data_updates`
+SET 
+    category = "Watercress"
+WHERE 
+    category = "Watercress (d)" OR category = "Watercress (f)";
+###  modified 42 rows
+
+#### Check variety column
+SELECT 
+    DISTINCT(variety)
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+ORDER BY
+    variety;
+### 59 varieties including nulls
+
+
+###Check date column
+SELECT 
+    DISTINCT(date)
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+ORDER BY
+    date;
+### 290 dates(String type)
+
+
+### Check price column
+SELECT
+    DISTINCT(price)
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+ORDER BY
+    price;
+### 946 records, There is some rows with "*" instead of price -(to remove)
+
+
+### Check unit column
+SELECT 
+    DISTINCT(unit)
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+ORDER BY
+    unit;
+### 5 unique units -(kg, head, Steam, Unit, twin)
+### There is Lettuce as head and twin but its okay as they are in same category
+
+
+### Lets update null values from varieties to "All" to avoid reducing data
+UPDATE 
+    `logical-light-389912.Fruits_Veges.data_updates`
+SET
+    variety = "All"
+WHERE
+    variety IS NULL OR
+    variety = "All Varieties";
+### 3,842 rows modified
+
+### Double check 
+SELECT
+    COUNT(items) items,
+    COUNT(category) category,
+    COUNT(variety) variety,
+    COUNT(date) date,
+    COUNT(price) price
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`;
+
+### Lets also remove missing informations from price column
+DELETE FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+WHERE
+    price = "*";
+### 2 rows removed
+  
+### Second check of price column
+SELECT
+    DISTINCT(price)
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+ORDER BY
+    price;
+
+### Exploratory Data analysis
+
+
+### Count item types
+SELECT
+    items,
+    COUNT(items) Total
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+GROUP BY
+    items
+ORDER BY
+    Total DESC;
+### Most of the data are Vegetables (9666) Fruits (2675)
+
+
+### Check unique categories
+SELECT
+    items,
+    COUNT(DISTINCT(category)) Categories,
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`
+GROUP BY
+    items
+ORDER BY
+    Categories DESC;
+### Vegetable has 34 categories with 10 Fruits
+
+
+### Average prices of Fruits 
+SELECT
+    category,
+    ROUND(AVG(price),2) average_price,
+    unit
+FROM    (
+        SELECT
+            unit,
+            category,
+            items,
+            CAST(price AS FLOAT64) price
+        FROM
+            `logical-light-389912.Fruits_Veges.data_updates`
+)
+WHERE 
+    items = "Fruit"
+GROUP BY
+    category, unit
+ORDER BY
+    AVG(price) DESC;
+### Raspberries are most expensive (8.36/kg) Pears are cheapest (0.91/kg).
+
+
+
+### Yearly average prices of Fruits
+SELECT
+    category,
+    EXTRACT (YEAR FROM date) as date,
+    ROUND(AVG(price),2) average_price,
+    unit
+FROM    (
+        SELECT
+            date,
+            category,
+            CAST(price AS FLOAT64) price,
+            unit
+        FROM
+           `logical-light-389912.Fruits_Veges.data_updates`
+        WHERE
+            items = "Fruit"
+)
+GROUP BY
+    category, date, unit
+ORDER BY
+    category, date DESC;
+
+
+### Monthly Average prices of Fruits
+SELECT
+    category,
+    EXTRACT (MONTH FROM date) as date,
+    ROUND(AVG(price),2) average_price,
+    unit
+FROM    (
+        SELECT
+            date,
+            category,
+            CAST(price AS FLOAT64) price,
+            unit
+        FROM
+           `logical-light-389912.Fruits_Veges.data_updates`
+        WHERE items = "Fruit"
+)
+GROUP BY
+    category, date, unit
+ORDER BY
+    category, average_price DESC;
+
+
+### Average prices of Vegetables 
+SELECT
+    category,
+    ROUND(AVG(price),2) average_price,
+    unit
+FROM    (
+        SELECT
+            unit,
+            category,
+            items,
+            CAST(price AS FLOAT64) price
+        FROM
+            `logical-light-389912.Fruits_Veges.data_updates`)
+        WHERE
+            items = "Vegetable"
+GROUP BY
+    category, unit
+ORDER BY
+    AVG(price) DESC;
+
+
+
+### Yearly average prices of Vegetable
+SELECT
+    category,
+    EXTRACT (YEAR FROM date) as date,
+    ROUND(AVG(price),2) average_price,
+    unit
+FROM    (
+        SELECT
+            date,
+            category,
+            CAST(price AS FLOAT64) price,
+            unit
+        FROM
+           `logical-light-389912.Fruits_Veges.data_updates`
+         WHERE
+            items = "Vegetable"
+)
+GROUP BY
+   category, date, unit
+ORDER BY
+    category, date DESC;
+
+
+### Monthly Average Prices
+SELECT
+    category,
+    EXTRACT (MONTH FROM date) as date,
+    ROUND(AVG(price),2) average_price,
+    unit
+FROM    (
+        SELECT
+            date,
+            category,
+            CAST(price AS FLOAT64) price,
+            unit
+        FROM
+           `logical-light-389912.Fruits_Veges.data_updates`
+        WHERE
+            items = "Vegetable"
+)
+GROUP BY
+   category, date, unit
+ORDER BY
+    category, date DESC;
+
+
+SELECT 
+    *
+FROM
+    `logical-light-389912.Fruits_Veges.data_updates`;
+
+###
+Next step is save table "Fruits_Veges.data_updates" and import to tableau for Vizualizations(here)[https://public.tableau.com/trusted/ggvkfq65T9OkWhFQXAnWnQ==:9CSBhZ0qDmHBLDPpyJB5A8LL?:redirUrl=%2Fprofile%2Fapi%2Fpublish%2FinWORKFruitsandVegetablespricesUK2018-2023%2FStory1]
