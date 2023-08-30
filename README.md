@@ -1,4 +1,4 @@
-# Exploratory Data Analysis(EDA)- # SQL Fruits and Vegetables UK (2018-2023 ytd)
+# Fruits and Vegetables UK (2018-2023 ytd)
 
 EDA Definition - Method used by scientist to analyze datasets and summarize their main charascteristics.
 
@@ -12,30 +12,27 @@ Method for this analysis is EDA. (Method used by scientist to analyze datasets a
 * Is there a correlation between the prices of fruits and vegetables?
 * Which fruit or vegetable had the largest price increase?
 * Which year had the highest percentage increase in prices? 
-
+---
 # Prepare
 Source of Dataset:
-https://www.gov.uk/government/statistical-data-sets/wholesale-fruit-and-vegetable-prices-weekly-average
+* Data collected from - https://www.gov.uk/government/statistical-data-sets/wholesale-fruit-and-vegetable-prices-weekly-average 
+ "Machine-readable: Weekly price time series 2015 to 2023"
+
+> ### Additional source informations:
 
 
-### Additional source informations:
-
-* Data collected:
-* From 1 January 2016 to 1 April 2016 these were the average of the most usual prices charged by wholesales for homegrown fruit, vegetable and flower prices at Birmingham, Liverpool, New Spitalfields and Bristol. Flower prices were also collected at New Covent Garden.
-* From 1 April 2016 to 28 May 2018 these were the average of the most usual prices charged by wholesales for homegrown fruit, vegetable and flower prices at Birmingham, Liverpool, New Spitalfields and Bristol. 
-* From 4 June 2018 to 14 January these were the average of the most usual prices charged by wholesales for homegrown fruit, vegetable and flower prices at Birmingham, Manchester, New Spitalfields and Bristol.
-* With effect from 14 January 2019 this has changed to the average of the most usual prices charged by wholesales for homegrown fruit, vegetable and flower prices at Birmingham, Manchester, a London market (either New Spitalfields or Western International Market) and 
- Bristol.
-
-* Contact:
-> * Agricultural Accounts and Market Prices team
-> * Department for Environment, Food and Rural Affairs
-> * Room 202, Foss House, Kings Pool
-> * 1-2 Peasholme Green, York, YO1 7PX
-> * Tel: +44 (0)7920 073612
-> * Email: prices@defra.gov.uk
-
-
+>  ###### From 1 January 2016 to 1 April 2016 these were the average of the most usual prices charged by wholesales for homegrown fruit, vegetable and flower prices at Birmingham, Liverpool, New Spitalfields and Bristol. Flower prices were also collected at New Covent Garden.
+> 
+>  ###### From 1 April 2016 to 28 May 2018 these were the average of the most usual prices charged by wholesales for homegrown fruit, vegetable and flower prices at Birmingham, Liverpool, New Spitalfields and Bristol.
+> 
+>  ###### From 4 June 2018 to 14 January these were the average of the most usual prices charged by wholesales for homegrown fruit, vegetable and flower prices at Birmingham, Manchester, New Spitalfields and Bristol.
+> 
+>  ###### With effect from 14 January 2019 this has changed to the average of the most usual prices charged by wholesales for homegrown fruit, vegetable and flower prices at Birmingham, Manchester, a London market (either New Spitalfields or Western International Market) and Bristol.
+---
+### Tools:
+* Process&Analysis - Excel, SQLBigQuery
+* Vizualizations - Tableau
+---
 
 ### Data limitations:
 This analysis is based on data from 2018 to 2023 year to date.
@@ -45,13 +42,23 @@ However, the overall trend of the prices of fruits and vegetables is still likel
 Additionally, the prices of fruits and vegetables can vary depending on a number of factors, such as the weather, the time of year, and the regions.
 This means that the results of this analysis may not be generalizable to all fruits and vegetables or to all locations.
 
+---
 # Process & Analysis 
-[here]()
+Excel
+Downloaded data is in incorrect formatting, used  
 
+Convert Data into Table ...
+TO FILL
+
+...
+SQLBigquery **[here](https://github.com/kac123451/SQL-Fruits_VegesUK/blob/main/Fruits_VegesUK)**
+
+---
 # Share&Act 
 
 **[here](https://public.tableau.com/views/FruitsandVegetablespricesUK2018-2023ytd/Story1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)**
 
+---
 ### Conclusions:
 
 * The prices of fruits and vegetables have increased every year since 2018, except for 2022 for fruits.
@@ -61,7 +68,7 @@ This means that the results of this analysis may not be generalizable to all fru
 * 2020 was the year with the largest increase in the average price of fruits, while the price of vegetables increased the least in that year.
 * The only year that saw a decrease in prices was 2022, for fruits.
 
-
+---
 ### Implications of Findings:
 The findings of this study have several implications. 
  
@@ -69,6 +76,7 @@ The findings of this study have several implications.
 * could have a negative impact on the environment. This is because fruits and vegetables are often grown using intensive agricultural practices that can damage the soil and water. 
 * and could lead to changes in the way people eat. For example, people may be more likely to choose processed foods instead of fresh fruits and vegetables.
 
+---
 ### Recommendations
 
 The findings of this study suggest that there is a need for policies to address the rising cost of fruits and vegetables. These policies could include:
