@@ -44,27 +44,39 @@ This means that the results of this analysis may not be generalizable to all fru
 
 ---
 # Process & Analysis 
-Excel
-As seen from picture below Data is in incorrect format and has some additional text information.
+
+### Excel - (Combining and processing data into a format suitable for its handling)
+
+* As seen from picture below Data is in incorrect format and has some additional text information.
+
 ![](Screen1.png)
 
 
-Remove unnecessary text from Table and Week No. Row
-Usunięcie wszystkich dat po 18.08 jako iż rzędy te są puste
-Sheets 2016-2015 2017-2016 Different data - Removed
-Sheet 2017 only contains data from 3/11/2017 to 29/12/2017
-![](screen2.png)
+* Deletion of unnecessary text from the table and row "Week No" from each sheet.
+* Removal of all dates after 18.08 as these rows are empty.
+* Sheets 2016-2015 2017-2016 Different data - Also removed.
+* Sheet 2017 only contains data from 3/11/2017 to 29/12/2017 - Not much context - Removed
+  
+![](Second.png)
 
-Used PowerQuery to transpose data
+* Using PowerQuery to transpose the year and name the price and year columns (repeat for each sheet)
+  
 ![](screen2and3.png)
-![](screen3.png)
 
-...
-SQLBigquery **[here](https://github.com/kac123451/SQL-Fruits_VegesUK/blob/main/Fruits_VegesUK)**
+* Load data 
+* Copy and paste data from all sheets into one
+
+![](Done.png)
+
+
+
+### SQLBigquery
+**[here](https://github.com/kac123451/SQL-Fruits_VegesUK/blob/main/Fruits_VegesUK)**
 
 ---
 # Share&Act 
 
+### Tableau Vizualizations
 **[here](https://public.tableau.com/views/FruitsandVegetablespricesUK2018-2023ytd/Story1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)**
 
 ---
