@@ -1,5 +1,7 @@
 # Fruits and Vegetables UK (2018-2023 ytd)
 
+![](akolita._small_cute_vegetable_holding_hands_with_small_fruit_ca_cde7b512-c8de-4e81-9843-e9ee197aedb2.png)
+
 EDA Definition - Method used by scientist to analyze datasets and summarize their main charascteristics.
 
 Hi! I would like to present you my analysis for Fruits and Vegetables in UK from 2018 till 2023,
