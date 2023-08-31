@@ -45,10 +45,19 @@ This means that the results of this analysis may not be generalizable to all fru
 ---
 # Process & Analysis 
 Excel
-Downloaded data is in incorrect formatting, used  
+As seen from picture below Data is in incorrect format and has some additional text information.
+![](Screen1.png)
 
-Convert Data into Table ...
-TO FILL
+
+Remove unnecessary text from Table and Week No. Row
+Usunięcie wszystkich dat po 18.08 jako iż rzędy te są puste
+Sheets 2016-2015 2017-2016 Different data - Removed
+Sheet 2017 only contains data from 3/11/2017 to 29/12/2017
+![](screen2.png)
+
+Used PowerQuery to transpose data
+![](screen2and3.png)
+![](screen3.png)
 
 ...
 SQLBigquery **[here](https://github.com/kac123451/SQL-Fruits_VegesUK/blob/main/Fruits_VegesUK)**
