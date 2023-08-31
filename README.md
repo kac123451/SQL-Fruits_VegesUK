@@ -2,17 +2,17 @@
 
 ![](akolita._small_cute_vegetable_holding_hands_with_small_fruit_ca_cde7b512-c8de-4e81-9843-e9ee197aedb2.png)
 
-EDA Definition - Method used by scientist to analyze datasets and summarize their main charascteristics.
+
 
 Hi! I would like to present you my analysis for Fruits and Vegetables in UK from 2018 till 2023,
 I am interested in understanding the following:
 
-Method for this analysis is EDA. (Method used by scientist to analyze datasets and summarize their main charascteristics)
+##### Method for this analysis is EDA. (Exploratory Data Analysis - Method used by scientist to analyze datasets and summarize their main charascteristics)
 
 # Ask
 * How have the prices of fruits and vegetables changed over years?
 * Is there a correlation between the prices of fruits and vegetables?
-* Which fruit or vegetable had the largest price increase?
+* Which fruit or vegetable had the largest price increase since 2018?
 * Which year had the highest percentage increase in prices? 
 ---
 # Prepare
@@ -84,12 +84,20 @@ This means that the results of this analysis may not be generalizable to all fru
 ---
 ### Conclusions:
 
+#### How have the prices of fruits and vegetables changed over years?
 * The prices of fruits and vegetables have increased every year since 2018, except for 2022 for fruits.
-*The prices of fruits have increased by 49.3% since 2018, reaching an all-time high in 2023.
+* The prices of fruits have increased by 49.3% since 2018, reaching an all-time high in 2023.
 * The prices of vegetables have increased by 36% since 2018, also reaching an all-time high in 2023.
+* 
+#### Is there a correlation between the prices of fruits and vegetables?
+* Overall, there is some evidence of a correlation between the prices spike of fruits and vegetables. However, the correlation is not strong, and there are many exceptions. The strength of the correlation can be affected by a number of factors, such as the season, the supply and demand, and the cost of production.
 * On average, fruits are more expensive than vegetables, with a price of £1.27 per kilogram.
+#### Which fruit or vegetable had the largest price increase since 2018?
+* Fruits - Strawberries - 98% 
+* Vegetables - Capsicum - 128%
+#### Which year had the highest percentage increase in prices?
 * 2020 was the year with the largest increase in the average price of fruits, while the price of vegetables increased the least in that year.
-* The only year that saw a decrease in prices was 2022, for fruits.
+
 
 ---
 ### Implications of Findings:
