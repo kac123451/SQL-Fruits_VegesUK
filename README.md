@@ -4,10 +4,10 @@
 
 
 
-Hi! I would like to present you my analysis for Fruits and Vegetables in UK from 2018 till 2023,
+Hi! I would like to present my analysis of fruit and vegetables in the UK between 2018 and 2023,
+
 I am interested in understanding the following:
 
-##### Method for this analysis is EDA. (Exploratory Data Analysis - Method used by scientist to analyze datasets and summarize their main charascteristics)
 
 # Ask
 * How have the prices of fruits and vegetables changed over years?
